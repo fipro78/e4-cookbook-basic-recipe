@@ -15,6 +15,10 @@
                name="appName"
                value="codecentric Eclipse Tutorial App">
          </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
       </product>
    </extension>
 
