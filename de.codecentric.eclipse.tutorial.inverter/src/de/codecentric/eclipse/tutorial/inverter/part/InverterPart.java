@@ -1,6 +1,7 @@
 package de.codecentric.eclipse.tutorial.inverter.part;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
@@ -14,9 +15,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import de.codecentric.eclipse.tutorial.inverter.helper.StringInverter;
+import de.codecentric.eclipse.tutorial.service.inverter.InverterService;
 
 public class InverterPart {
+	
+	@Inject
+	InverterService service;
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {
@@ -43,7 +47,7 @@ public class InverterPart {
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				output.setText(StringInverter.invert(input.getText()));
+				output.setText(service.invert(input.getText()));
 			}
 		});
 
@@ -52,7 +56,7 @@ public class InverterPart {
 			public void keyPressed(KeyEvent e) {
 				if (e.keyCode == SWT.CR
 						|| e.keyCode == SWT.KEYPAD_CR) {
-					output.setText(StringInverter.invert(input.getText()));
+					output.setText(service.invert(input.getText()));
 				}
 			}
 		});

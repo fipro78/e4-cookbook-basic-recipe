@@ -7,4 +7,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.swt;bundle-version="3.103.1",
  org.eclipse.jface;bundle-version="3.10.1",
  javax.annotation;bundle-version="1.2.0",
- javax.inject;bundle-version="1.0.0"
+ javax.inject;bundle-version="1.0.0",
+ de.codecentric.eclipse.tutorial.service.inverter;bundle-version="1.0.0"
