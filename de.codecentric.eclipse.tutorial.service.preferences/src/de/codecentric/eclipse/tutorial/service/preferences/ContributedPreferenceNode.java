@@ -36,9 +36,7 @@ public class ContributedPreferenceNode extends PreferenceNode {
 	public void createPage() {
 		try {
 			setPage(this.pageClass.newInstance());
-		} catch (InstantiationException e) {
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+		} catch (InstantiationException|IllegalAccessException e) {
 			e.printStackTrace();
 		}
 		
