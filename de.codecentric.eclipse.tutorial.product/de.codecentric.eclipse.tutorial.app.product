@@ -30,10 +30,10 @@
 
    <features>
       <feature id="de.codecentric.eclipse.tutorial.feature" version="1.0.0.qualifier"/>
-      <feature id="org.eclipse.e4.rcp" version="1.3.100.v20140909-1633"/>
+      <feature id="org.eclipse.e4.rcp"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.emf.common"/>
-      <feature id="org.eclipse.fx.target.rcp4.feature" version="1.2.0.201501301037"/>
+      <feature id="org.eclipse.fx.target.rcp4.feature"/>
    </features>
 
    <configurations>
