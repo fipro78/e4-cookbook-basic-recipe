@@ -4,4 +4,5 @@
    <service>
       <provide interface="de.codecentric.eclipse.tutorial.service.inverter.InverterService"/>
    </service>
+   <reference bind="registerEventAdmin" cardinality="0..1" interface="org.osgi.service.event.EventAdmin" name="EventAdmin" policy="dynamic" unbind="unregisterEventAdmin"/>
 </scr:component>

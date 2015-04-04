@@ -3,6 +3,9 @@
   <children xsi:type="basic:TrimmedWindow" xmi:id="_tv09MaYzEeSD7pZHnwEr_g" label="de.codecentric.eclipse.tutorial.app" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_eJLHQKbJEeSD7pZHnwEr_g" elementId="de.codecentric.eclipse.tutorial.app.partsashcontainer.0">
       <children xsi:type="basic:Part" xmi:id="_hJgEsKbJEeSD7pZHnwEr_g" elementId="de.codecentric.eclipse.tutorial.app.part.0" contributionURI="bundleclass://de.codecentric.eclipse.tutorial.inverter/de.codecentric.eclipse.tutorial.inverter.part.InverterPart"/>
+      <children xsi:type="basic:PartStack" xmi:id="_-vnfANsAEeSOuNYqM9UQIg" elementId="de.codecentric.eclipse.tutorial.app.partstack.0">
+        <children xsi:type="basic:Part" xmi:id="_XdHVgNrrEeSOuNYqM9UQIg" elementId="de.codecentric.eclipse.tutorial.app.part.logView" contributionURI="bundleclass://de.codecentric.eclipse.tutorial.app/de.codecentric.eclipse.tutorial.app.part.LogViewPart" label="Log View"/>
+      </children>
     </children>
   </children>
   <rootContext xmi:id="_tv09OaYzEeSD7pZHnwEr_g" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">

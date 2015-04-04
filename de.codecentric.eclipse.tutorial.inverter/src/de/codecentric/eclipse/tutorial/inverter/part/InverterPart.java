@@ -3,6 +3,7 @@ package de.codecentric.eclipse.tutorial.inverter.part;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyAdapter;
@@ -18,6 +19,9 @@ import org.eclipse.swt.widgets.Text;
 import de.codecentric.eclipse.tutorial.service.inverter.InverterService;
 
 public class InverterPart {
+	
+	@Inject
+	IEventBroker broker;
 	
 	@Inject
 	InverterService service;
@@ -48,6 +52,7 @@ public class InverterPart {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				output.setText(service.invert(input.getText()));
+				broker.post("TOPIC_LOGGING", "triggered via button");
 			}
 		});
 
@@ -57,6 +62,7 @@ public class InverterPart {
 				if (e.keyCode == SWT.CR
 						|| e.keyCode == SWT.KEYPAD_CR) {
 					output.setText(service.invert(input.getText()));
+					broker.post("TOPIC_LOGGING", "triggered via input");
 				}
 			}
 		});
