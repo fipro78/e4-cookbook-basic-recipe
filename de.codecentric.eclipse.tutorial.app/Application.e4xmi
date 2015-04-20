@@ -10,15 +10,18 @@
     <mainMenu xmi:id="__rpnMOCXEeSgVOwg70j1Hg" elementId="org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="_CeN1cOCYEeSgVOwg70j1Hg" elementId="org.eclipse.ui.file.menu" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_E1Vd0OCYEeSgVOwg70j1Hg" elementId="de.codecentric.eclipse.tutorial.app.handledmenuitem.update" label="Update" command="_SPCUwOCWEeSgVOwg70j1Hg"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_bTf3IOeiEeSf3-k4zq_lzQ" elementId="de.codecentric.eclipse.tutorial.app.handledmenuitem.exit" label="Exit" command="_Mb5wwOeiEeSf3-k4zq_lzQ"/>
       </children>
     </mainMenu>
   </children>
   <handlers xmi:id="_cLy40OCWEeSgVOwg70j1Hg" elementId="de.codecentric.eclipse.tutorial.app.handler.0" contributionURI="bundleclass://de.codecentric.eclipse.tutorial.app/de.codecentric.eclipse.tutorial.app.handler.UpdateHandler" command="_SPCUwOCWEeSgVOwg70j1Hg"/>
+  <handlers xmi:id="_PdVhcOeiEeSf3-k4zq_lzQ" elementId="de.codecentric.eclipse.tutorial.app.handler.exit" contributionURI="bundleclass://de.codecentric.eclipse.tutorial.app/de.codecentric.eclipse.tutorial.app.handler.ExitHandler" command="_Mb5wwOeiEeSf3-k4zq_lzQ"/>
   <rootContext xmi:id="_tv09OaYzEeSD7pZHnwEr_g" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_tv09OqYzEeSD7pZHnwEr_g" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_tv09O6YzEeSD7pZHnwEr_g" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
   <commands xmi:id="_SPCUwOCWEeSgVOwg70j1Hg" elementId="de.codecentric.eclipse.tutorial.app.command.update" commandName="Update"/>
+  <commands xmi:id="_Mb5wwOeiEeSf3-k4zq_lzQ" elementId="de.codecentric.eclipse.tutorial.app.command.exit" commandName="Exit"/>
   <addons xmi:id="_tv09MqYzEeSD7pZHnwEr_g" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_tv09M6YzEeSD7pZHnwEr_g" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_tv09NKYzEeSD7pZHnwEr_g" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

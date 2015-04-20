@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="codecentric Eclipse Tutorial App" uid="de.codecentric.eclipse.tutorial" id="de.codecentric.eclipse.tutorial.app.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0" useFeatures="true" includeLaunchers="true">
+<product name="codecentric Eclipse Tutorial App" uid="de.codecentric.eclipse.tutorial" id="de.codecentric.eclipse.tutorial.app.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.1" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -27,7 +27,7 @@
    </plugins>
 
    <features>
-      <feature id="de.codecentric.eclipse.tutorial.feature" version="1.0.0.qualifier"/>
+      <feature id="de.codecentric.eclipse.tutorial.feature" version="1.0.1.qualifier"/>
       <feature id="org.eclipse.e4.rcp"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.emf.common"/>
