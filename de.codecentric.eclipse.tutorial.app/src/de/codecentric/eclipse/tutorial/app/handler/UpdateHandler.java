@@ -6,6 +6,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.SubMonitor;
+import org.eclipse.core.runtime.jobs.IJobChangeEvent;
+import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.di.UISynchronize;
 import org.eclipse.e4.ui.workbench.IWorkbench;
@@ -18,6 +20,8 @@ import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 
 public class UpdateHandler {
+	
+	boolean cancelled = false;
 	
 	@Execute
 	public void execute(IProvisioningAgent agent, UISynchronize sync, IWorkbench workbench) {
@@ -65,15 +69,37 @@ public class UpdateHandler {
                                 "Updates available",
                                 "There are updates available. Do you want to install them now?");
                         if (performUpdate) {
-                            IStatus updateStatus = provisioningJob.runModal(sub.newChild(100));
-                            if (updateStatus.isOK()) {
-                                boolean restart = MessageDialog.openQuestion(null,
-                                        "Updates installed, restart?",
-                                        "Updates have been installed successfully, do you want to restart?");
-                                if (restart) {
-                                	workbench.restart();
-                                }
-                            }
+                        	provisioningJob.addJobChangeListener(new JobChangeAdapter() {
+								@Override
+								public void done(IJobChangeEvent event) {
+									if (event.getResult().isOK()) {
+										sync.syncExec(new Runnable() {
+
+											@Override
+											public void run() {
+												boolean restart = MessageDialog.openQuestion(null,
+				                                        "Updates installed, restart?",
+				                                        "Updates have been installed successfully, do you want to restart?");
+				                                if (restart) {
+				                                	workbench.restart();
+				                                }
+											}
+										});
+									}
+									else {
+										showError(sync, event.getResult().getMessage());
+										cancelled = true;
+									}
+								}
+                        	});
+                        	
+                        	// since we switched to the UI thread for interacting with the user
+                        	// we need to schedule the provisioning thread, otherwise it would
+                        	// be executed also in the UI thread and not in a background thread
+                        	provisioningJob.schedule();
+                        }
+                        else {
+                        	cancelled = true;
                         }
                     }
                 });
@@ -85,11 +111,15 @@ public class UpdateHandler {
                 else {
                     showError(sync, "Couldn't resolve provisioning job");
                 }
-                return Status.CANCEL_STATUS;
+                cancelled = true;
         	}
         }
         
-
+		if (cancelled) {
+			// reset cancelled flag
+			cancelled = false;
+			return Status.CANCEL_STATUS;
+		}
         return Status.OK_STATUS;
 	}
 		
