@@ -1,0 +1,8 @@
+target "E4 Cookbook Target Platform"
+
+with source requirements
+
+location "http://download.eclipse.org/releases/2019-06" {
+	org.eclipse.equinox.executable.feature.group
+	org.eclipse.sdk.feature.group
+}
