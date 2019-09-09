@@ -1,0 +1,12 @@
+target "E4 Cookbook Target Platform"
+
+with source requirements
+
+location "http://download.eclipse.org/releases/2019-06" {
+	org.eclipse.equinox.executable.feature.group
+	org.eclipse.sdk.feature.group
+}
+
+location "https://github.com/fipro78/e4-preferences/raw/master/releases/0.3.0" {
+	org.fipro.e4.service.preferences.feature.feature.group
+}
