@@ -15,6 +15,15 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.fipro.eclipse.tutorial.inverter.helper.StringInverter;
 
+import javafx.animation.ParallelTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
+import javafx.embed.swt.FXCanvas;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
+
 public class InverterPart {
 	
 	@PostConstruct
@@ -36,22 +45,57 @@ public class InverterPart {
 		outputLabel.setText("Inverted String:");
 		GridDataFactory.fillDefaults().applyTo(outputLabel);
 		
-		final Text output = new Text(parent, SWT.READ_ONLY | SWT.WRAP);
-		GridDataFactory.fillDefaults().grab(true, true).span(2, 1).applyTo(output);
+		// add FXCanvas for adding JavaFX controls to the UI
+		FXCanvas canvas = new FXCanvas(parent, SWT.NONE);
+		GridDataFactory
+		    .fillDefaults()
+		    .grab(true, true)
+		    .span(3, 1)
+		    .applyTo(canvas);
+
+		// create the root layout pane
+		BorderPane layout = new BorderPane();
+
+		// create a Scene instance
+		// set the layout container as root
+		// set the background fill to the background color of the shell
+		Scene scene = new Scene(layout, Color.rgb(
+		    parent.getShell().getBackground().getRed(),
+		    parent.getShell().getBackground().getGreen(),
+		    parent.getShell().getBackground().getBlue()));
+
+		// set the Scene to the FXCanvas
+		canvas.setScene(scene);
 		
+		javafx.scene.control.Label output = new javafx.scene.control.Label();
+		layout.setCenter(output);
+		
+		RotateTransition rotateTransition = new RotateTransition(Duration.seconds(1), output);
+		rotateTransition.setByAngle(360);
+
+		ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1), output);
+		scaleTransition.setFromX(1.0);
+		scaleTransition.setFromY(1.0);
+		scaleTransition.setToX(4.0);
+		scaleTransition.setToY(4.0);
+
+		ParallelTransition parallelTransition = new ParallelTransition(rotateTransition, scaleTransition);
+
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				output.setText(StringInverter.invert(input.getText()));
+				parallelTransition.play();
 			}
 		});
-
+			
 		input.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.keyCode == SWT.CR
 						|| e.keyCode == SWT.KEYPAD_CR) {
 					output.setText(StringInverter.invert(input.getText()));
+					parallelTransition.play();
 				}
 			}
 		});
