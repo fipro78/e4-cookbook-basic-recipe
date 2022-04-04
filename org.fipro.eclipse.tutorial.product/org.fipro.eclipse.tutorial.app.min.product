@@ -35,7 +35,6 @@
       <feature id="org.fipro.eclipse.tutorial.feature" installMode="root"/>
       <feature id="openjfx.media.feature" installMode="root"/>
       <feature id="openjfx.standard.feature" installMode="root"/>
-      <feature id="openjfx.swing.feature" installMode="root"/>
       <feature id="openjfx.swt.feature" installMode="root"/>
       <feature id="openjfx.web.feature" installMode="root"/>
    </features>
