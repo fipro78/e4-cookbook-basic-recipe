@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="E4 RCP Tutorial App" uid="org.fipro.eclipse.tutorial" id="org.fipro.eclipse.tutorial.app.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0" useFeatures="true" includeLaunchers="true">
+<product name="E4 RCP Tutorial App" uid="org.fipro.eclipse.tutorial" id="org.fipro.eclipse.tutorial.app.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0" type="features" includeLaunchers="true" autoIncludeRequirements="true">
 
    <configIni use="default">
    </configIni>

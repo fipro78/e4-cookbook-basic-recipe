@@ -3,24 +3,24 @@
 <target name="E4 Cookbook Target Platform">
   <locations>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <repository location="http://download.eclipse.org/releases/2019-06"/>
-      <unit id="org.eclipse.equinox.executable.feature.group" version="3.8.400.v20190515-0925"/>
-      <unit id="org.eclipse.sdk.feature.group" version="4.12.0.v20190605-1801"/>
-      <unit id="org.eclipse.equinox.p2.core.feature.feature.group" version="1.6.200.v20190516-1504"/>
-      <unit id="org.eclipse.emf.edit.feature.group" version="2.15.0.v20190528-0725"/>
+      <repository location="http://download.eclipse.org/releases/2023-12"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="3.8.2300.v20231106-1826"/>
+      <unit id="org.eclipse.sdk.feature.group" version="4.30.0.v20231201-0512"/>
+      <unit id="org.eclipse.equinox.p2.core.feature.feature.group" version="1.7.0.v20231112-1314"/>
+      <unit id="org.eclipse.emf.edit.feature.group" version="2.21.0.v20231107-0612"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <repository location="http://download.eclipse.org/efxclipse/runtime-released/3.7.0/site"/>
-      <unit id="org.eclipse.fx.runtime.min.feature.feature.group" version="3.7.0.202010120720"/>
-      <unit id="org.eclipse.fx.target.rcp4.feature.feature.group" version="3.7.0.202010120723"/>
+      <repository location="http://download.eclipse.org/efxclipse/runtime-released/3.9.0/site"/>
+      <unit id="org.eclipse.fx.runtime.min.feature.feature.group" version="3.9.0.202210162353"/>
+      <unit id="org.eclipse.fx.target.rcp4.feature.feature.group" version="3.9.0.202210170008"/>
     </location>
     <location includeMode="planner" includeAllPlatforms="false" includeSource="true" includeConfigurePhase="false" type="InstallableUnit">
-      <repository location="http://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository/"/>
-      <unit id="openjfx.media.feature.feature.group" version="11.0.0.201901231300"/>
-      <unit id="openjfx.standard.feature.feature.group" version="11.0.0.201901231300"/>
-      <unit id="openjfx.swing.feature.feature.group" version="11.0.0.201901231300"/>
-      <unit id="openjfx.swt.feature.feature.group" version="11.0.0.201901231300"/>
-      <unit id="openjfx.web.feature.feature.group" version="11.0.0.201901231300"/>
+      <repository location="http://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-17.0.2/"/>
+      <unit id="openjfx.media.feature.feature.group" version="17.0.2.202204012121"/>
+      <unit id="openjfx.standard.feature.feature.group" version="17.0.2.202204012121"/>
+      <unit id="openjfx.swing.feature.feature.group" version="17.0.2.202204012121"/>
+      <unit id="openjfx.swt.feature.feature.group" version="17.0.2.202204012121"/>
+      <unit id="openjfx.web.feature.feature.group" version="17.0.2.202204012121"/>
     </location>
   </locations>
 </target>

@@ -18,12 +18,34 @@
 	</modules>
 
 	<properties>
-		<tycho-version>1.5.1</tycho-version>
+		<tycho-version>4.0.4</tycho-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.4.1</version>
+				<executions>
+					<execution>
+						<id>enforce-property</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireEnvironmentVariable>
+									<variableName>JAVAFX_HOME</variableName>
+									<message>You need to have a JavaFX 17 SDK installed and an environment variable JAVAFX_HOME that points to the installation directory!</message>
+								</requireEnvironmentVariable>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
@@ -66,6 +88,7 @@
 		<pluginManagement>
 			<plugins>
 				<!-- Additional configuration to compile with Java 8 -->
+				<!--
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-compiler-plugin</artifactId>
@@ -83,9 +106,9 @@
 						</extraClasspathElements>
 					</configuration>
 				</plugin>
+				-->
 
-				<!-- Additional configuration to compile with Java 11 -->
-				<!--
+				<!-- Additional configuration to compile with Java 17 -->
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-compiler-plugin</artifactId>
@@ -96,19 +119,18 @@
 							<extraClasspathElement>
 								<groupId>org.openjfx</groupId>
 								<artifactId>javafx-controls</artifactId>
-								<version>11.0.2</version>
+								<version>17.0.9</version>
 							</extraClasspathElement>
 							<extraClasspathElement>
 								<groupId>org.openjfx</groupId>
 								<artifactId>javafx-swt</artifactId>
-								<version>11.0.2</version>
+								<version>17.0.9</version>
 								<systemPath>${JAVAFX_HOME}/lib/javafx-swt.jar</systemPath>
 								<scope>system</scope>
 							</extraClasspathElement>
 						</extraClasspathElements>
 					</configuration>
 				</plugin>
-				-->
 
 			    <plugin>
 				    <groupId>org.eclipse.tycho</groupId>

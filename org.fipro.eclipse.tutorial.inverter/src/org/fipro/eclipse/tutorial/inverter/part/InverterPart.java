@@ -1,6 +1,7 @@
 package org.fipro.eclipse.tutorial.inverter.part;
 
-import javax.annotation.PostConstruct;
+
+import jakarta.annotation.PostConstruct;
 
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.swt.SWT;
